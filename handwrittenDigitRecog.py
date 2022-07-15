@@ -53,13 +53,16 @@ epochs=epochStuffValue,
 validation_data=validation_iterator,
 validation_steps=len(x_test)/8)
 
+model.save("mnistModel")
+model=model.load("mnistModel")
+
 def predictImage(imagePath):
     image=cv2.imread(imagePath)
     image=tf.image.resize(image,[32,32],antialias=True)
     model.predict(image)
 
 
-#predictImage('C:/Users/037co/Downloads/3image')
+predictImage('C:/Users/037co/Downloads/3image')
 
 
 
